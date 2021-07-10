@@ -50,11 +50,11 @@
 
 
     <ion-row class="classAlign">
-        <ion-col size="9" [ngClass]="getTextColor('text1')" (click)="setSelectedText('text1')">
+        <ion-col size="8" [ngClass]="getTextColor('text1')" (click)="setSelectedText('text1')">
             <span>Liste des dossiers</span>
         </ion-col>
-        <ion-col size="3" [ngClass]="getTextColor('text2')" (click)="setSelectedText('text2')">
-            <span>Voir tout</span>
+        <ion-col size="4" [ngClass]="getTextColor('text2')" (click)="setSelectedText('text2')">
+            <span>Vue graphique</span>
         </ion-col>
     </ion-row>
 
@@ -66,7 +66,7 @@
                         <ion-col>
                             <ion-text>
                                 <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="podium-outline"></ion-icon>
+                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
                                 </ion-badge>
                             </ion-text>
                         </ion-col>
@@ -169,4 +169,6 @@
             </ion-card-content>
         </ion-card>
     </div>
+
+
 </ion-content>

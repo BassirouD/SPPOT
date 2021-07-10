@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TendanceEvolutionPage implements OnInit {
 
-    showLocationDetail = false;
+    showLocationDetail: boolean = false;
+    private selecteTextId: string = 'text1';
 
     constructor() { }
 
@@ -23,5 +24,13 @@ export class TendanceEvolutionPage implements OnInit {
         setTimeout(() => {
             event.target.complete();
         }, 2000);
+    }
+
+    setSelectedText(textId: string) {
+        this.selecteTextId = textId;
+    }
+
+    getTextColor(textId: string): string{
+        return this.selecteTextId == textId? "highlight-color" : "";
     }
 }

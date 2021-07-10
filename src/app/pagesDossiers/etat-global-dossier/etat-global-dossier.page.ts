@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./etat-global-dossier.page.scss'],
 })
 export class EtatGlobalDossierPage implements OnInit {
-    showLocationDetail = false;
+
+    clicked: boolean = true;
+    showLocationDetail: boolean = false;
+    private selecteTextId: string = 'text1';
 
     constructor() { }
 
@@ -22,5 +25,13 @@ export class EtatGlobalDossierPage implements OnInit {
         setTimeout(() => {
             event.target.complete();
         }, 2000);
+    }
+
+    setSelectedText(textId: string) {
+        this.selecteTextId = textId;
+    }
+
+    getTextColor(textId: string): string{
+        return this.selecteTextId == textId? "highlight-color" : "";
     }
 }
