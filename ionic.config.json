@@ -1,0 +1,8 @@
+{
+  "name": "SPPOT",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
