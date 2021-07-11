@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ export class ProfilePage implements OnInit {
 
   showLocationDetail = false;
 
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit() {
   }
@@ -24,5 +25,25 @@ export class ProfilePage implements OnInit {
       event.target.complete();
     }, 2000);
   }
+
+    logOut(){
+        localStorage.removeItem('login');
+        localStorage.removeItem('id');
+        localStorage.removeItem('token');
+        localStorage.removeItem('code');
+        localStorage.removeItem('iden');
+        localStorage.removeItem('leggedIn');
+        localStorage.removeItem('idapp');
+        localStorage.removeItem('annee');
+        this.router.navigateByUrl('/');
+    }
+
+    goToChangePassword(){
+        this.router.navigateByUrl('/change-password');
+    }
+
+    goToChangeProfil(){
+        this.router.navigateByUrl('/change-profil');
+    }
 
 }

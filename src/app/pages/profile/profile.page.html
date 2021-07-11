@@ -32,4 +32,68 @@
     </ion-refresher>
 
 
+    <div>
+        <div>
+            <ion-card-header><h5>Informations <br>personnelles</h5></ion-card-header>
+            <ion-card-content>
+                <ion-avatar class="cAvatar">
+                    <img class="cImage" src="../../assets/images/profile.png">
+                    <ion-icon class="cIcone" name="camera-outline"></ion-icon>
+                </ion-avatar>
+                <ion-grid>
+                    <ion-row class="cName">
+                        <ion-col size="7">
+                            <h2><b>Diallo Bassirou</b></h2>
+                        </ion-col>
+                        <ion-col>
+                            <ion-buttons>
+                                <span (click)="goToChangeProfil()">
+                                    <div><ion-icon color="monvert" name="pencil-sharp"></ion-icon></div>
+                                </span>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </div>
+
+    </div>
+
+    <ion-row>
+        <ion-col>
+            <ion-card class="text-center classCard">
+                <span style="font-weight: bold;">
+                    diallo@gainde2000.sn
+                </span>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card class="text-center classCard">
+                <span style="font-weight: bold;">
+                    77785233
+                </span>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+
+    <br>
+
+    <ion-item lines="none" (click)="goToChangeProfil()">
+        <h6>Modifier mon profil</h6>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item lines="none" (click)="goToChangePassword()">
+        <h6>Modifier mon mot de passe</h6>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+<!--    <ion-item lines="none">-->
+<!--        <h6>Passer en mode dark</h6>-->
+<!--        <ion-toggle slot="end" (ionChange)="toggleTheme($event)"></ion-toggle>-->
+<!--    </ion-item>-->
+    <ion-item (click)="logOut()" lines="none">
+        <h6>Déconnexion</h6>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+
 </ion-content>
