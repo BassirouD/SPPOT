@@ -15,6 +15,15 @@ export class TendanceEvolutionPage implements OnInit {
     ngOnInit() {
     }
 
+    catSlideOpts = {
+        slidesPerView: 2.2,
+        spaceBetween: 0,
+        slidesOffsetBefore: 0,
+        freeMode: true,
+        loop: false,
+        centeredSlides: false,
+    };
+
     onScroll(ev) {
         const offset = ev.detail.scrollTop;
         this.showLocationDetail = offset > 40;
@@ -33,4 +42,5 @@ export class TendanceEvolutionPage implements OnInit {
     getTextColor(textId: string): string{
         return this.selecteTextId == textId? "highlight-color" : "";
     }
+
 }
