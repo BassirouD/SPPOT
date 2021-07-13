@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" scrollEvents="true" (ionScroll)="onScroll($event)">
     <ion-toolbar color="monvert">
         <ion-back-button slot="start" color="white" defaultHref="/tabs/home"></ion-back-button>
-        <ion-title class="text-white">Classement par dossier</ion-title>
+        <ion-title class="text-white" style="font-size: 19px">Classement par dossier</ion-title>
         <ion-buttons slot="end">
             <ion-button class="text-white">
                 <ion-icon name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
@@ -24,7 +24,6 @@
     </ion-row>
 </ion-header>
 
-
 <ion-content>
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
@@ -36,15 +35,34 @@
             <ion-card class="text-center classSelect">
                 <ion-item>
                     <ion-label>Choisir</ion-label>
-                    <ion-select value="notifications">
-                        <ion-select-option value="1">Assurance</ion-select-option>
-                        <ion-select-option value="2">Bank Ecobank</ion-select-option>
-                        <ion-select-option value="3">Hopital</ion-select-option>
-                        <ion-select-option value="4">Captivation</ion-select-option>
-                        <ion-select-option value="5">I dont know</ion-select-option>
+                    <ion-select value="notifications" (ionChange)="checkfamille($event)">
+                        <ion-select-option value="AC">ASSURANCES</ion-select-option>
+                        <ion-select-option value="CO,OB">DPI</ion-select-option>
+                        <ion-select-option value="BQ">BANQUES</ion-select-option>
+                        <ion-select-option value="PP">PÔLES PUBLICS</ion-select-option>
                     </ion-select>
                 </ion-item>
             </ion-card>
+        </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-left: 15px; margin-right: 15px">
+        <ion-col>
+            <div>
+                <ion-button class="active" expand="full" color="primary" (click)="delai()" shape="round">
+                    <ion-icon name="hourglass-outline"></ion-icon>
+                    Délai
+                </ion-button>
+            </div>
+        </ion-col>
+
+        <ion-col>
+            <div>
+                <ion-button class="active" expand="full" color="primary" (click)="duree()" shape="round">
+                    <ion-icon name="time-outline"></ion-icon>
+                    Durée
+                </ion-button>
+            </div>
         </ion-col>
     </ion-row>
 
@@ -54,12 +72,12 @@
             <span>Liste des dossiers</span>
         </ion-col>
         <ion-col size="4" [ngClass]="getTextColor('text2')" (click)="setSelectedText('text2')">
-            <span>Vue graphique</span>
+            <span (click)="openGraph()">Graphique</span>
         </ion-col>
     </ion-row>
 
     <div *ngIf="selecteTextId === 'text1'">
-        <ion-card>
+        <div *ngFor="let d of data">
             <ion-card-content>
                 <div class="colorLigne">
                     <ion-row>
@@ -74,101 +92,27 @@
                             <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
                         </ion-col>
                         <ion-col>
-                            <p class="valeurClass">Pole</p>
+                            <p class="valeurClass">{{d.nomPole}}</p>
                         </ion-col>
                         <ion-col>
                             <ion-icon class="iconLoading" name="timer-outline"></ion-icon>
                         </ion-col>
                         <ion-col size="3.5" class="smallPP">
-                            <p>Durée</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="timer-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Durée</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="timer-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Durée</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="timer-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Durée</p>
+                            <p>{{ conversion(d.dureeDossierLePlusLong)}}</p>
                         </ion-col>
                     </ion-row>
                 </div>
             </ion-card-content>
-        </ion-card>
+        </div>
     </div>
 
     <div *ngIf="selecteTextId === 'text2'">
         <ion-card>
-            <ion-card-header>Je suis le titre</ion-card-header>
+            <ion-card-header></ion-card-header>
             <ion-card-content>
-                Je suis le contenu graphique
+                <div [chart]="chartOptions" style="width:80%; height:390px;margin:auto;"></div>
             </ion-card-content>
         </ion-card>
     </div>
-
 
 </ion-content>

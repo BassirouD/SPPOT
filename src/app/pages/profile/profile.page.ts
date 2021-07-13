@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +10,19 @@ import {Router} from "@angular/router";
 export class ProfilePage implements OnInit {
 
   showLocationDetail = false;
+  public pepperoni:boolean=false;
+  public pepperoni1:boolean=false;
+  user:any;
+  login=localStorage.getItem('login')
+  nom:any;
+  prenom:any;
+  email:any;
+  telepohne:any;
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router,private auths:AuthService) { }
 
   ngOnInit() {
+    this.checkUser();
   }
 
   onScroll(ev) {
@@ -27,14 +37,9 @@ export class ProfilePage implements OnInit {
   }
 
     logOut(){
-        localStorage.removeItem('login');
-        localStorage.removeItem('id');
-        localStorage.removeItem('token');
-        localStorage.removeItem('code');
-        localStorage.removeItem('iden');
-        localStorage.removeItem('leggedIn');
-        localStorage.removeItem('idapp');
+        localStorage.removeItem('periode');
         localStorage.removeItem('annee');
+        //this.router.navigate(['login']);
         this.router.navigateByUrl('/');
     }
 
@@ -45,5 +50,17 @@ export class ProfilePage implements OnInit {
     goToChangeProfil(){
         this.router.navigateByUrl('/change-profil');
     }
+
+    checkUser(){
+        this.auths.getUser(this.login)
+        .subscribe(data=>{
+          this.user=data;
+          console.log(this.user);
+          this.nom=this.user.nom
+          this.prenom=this.user.prenom
+          this.email=this.user.email;
+          this.telepohne=this.user.telephone;
+        })
+      }
 
 }

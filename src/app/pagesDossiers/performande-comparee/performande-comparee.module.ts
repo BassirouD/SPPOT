@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PerformandeCompareePageRoutingModule } from './performande-comparee-routing.module';
 
 import { PerformandeCompareePage } from './performande-comparee.page';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerformandeCompareePageRoutingModule
+    PerformandeCompareePageRoutingModule,
+    ChartModule
   ],
   declarations: [PerformandeCompareePage]
 })

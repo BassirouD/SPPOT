@@ -36,13 +36,12 @@
             <ion-card class="text-center classSelect">
                 <ion-item>
                     <ion-label>Choisir</ion-label>
-                    <ion-select value="notifications">
-                        <ion-select-option value="1">Assurance</ion-select-option>
-                        <ion-select-option value="2">Bank Ecobank</ion-select-option>
-                        <ion-select-option value="3">Hopital</ion-select-option>
-                        <ion-select-option value="4">Captivation</ion-select-option>
-                        <ion-select-option value="5">I dont know</ion-select-option>
-                    </ion-select>
+                        <ion-select value="notifications" (ionChange)="checkfamille($event)">
+                            <ion-select-option value="AC">ASSURANCES</ion-select-option>
+                            <ion-select-option value="CO,OB">DPI</ion-select-option>
+                            <ion-select-option value="BQ">BANQUES</ion-select-option>
+                            <ion-select-option value="PP">PÔLES PUBLICS</ion-select-option>
+                        </ion-select>
                 </ion-item>
             </ion-card>
         </ion-col>
@@ -52,27 +51,47 @@
         <ion-slide>
             <ion-card class="classCardTaille c1">
                 <br>
-                <h6 class="text-white">6556665</h6>
+                <h6 class="text-white">{{nbTr}}</h6>
                 <br>
-                <h6 class="text-white">Dossiers total</h6>
+                <h6 class="text-white">Dossiers traités</h6>
             </ion-card>
         </ion-slide>
         <ion-slide>
             <ion-card class="classCardTaille c2">
                 <br>
-                <h6 class="text-white">6556665</h6>
+                <h6 class="text-white">{{nben}}</h6>
                 <br>
-                <h6 class="text-white">Dossiers total</h6>
+                <h6 class="text-white">Dossiers encours</h6>
             </ion-card>
         </ion-slide>
         <ion-slide>
-            <ion-card class="classCardTaille c3">
+            <ion-card class="classCardTaille c5">
                 <br>
-                <h6 class="text-white">6556665</h6>
+                <h6 class="text-white">{{nbmod}}</h6>
                 <br>
-                <h6 class="text-white">Dossiers total</h6>
+                <h6 class="text-white">Dossiers modifiés</h6>
             </ion-card>
         </ion-slide>
+
+        <ion-slide>
+            <ion-card class="classCardTaille c3">
+                <br>
+                <h6 class="text-white">{{nbAnn}}</h6>
+                <br>
+                <h6 class="text-white">Dossiers annulés</h6>
+            </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card class="classCardTaille c6">
+                <br>
+                <h6 class="text-white">{{nbRej}}</h6>
+                <br>
+                <h6 class="text-white">Dossiers rejetés</h6>
+            </ion-card>
+        </ion-slide>
+
+
     </ion-slides>
 
     <!--    <ion-row class="classAlign">-->
@@ -87,7 +106,7 @@
     <div>
         <ion-card>
             <ion-card-content>
-                <img class="cImage" src="assets/images/card.jpg">
+                <div [chart]="chartOptions" style="width:80%; height:390px;margin:auto;"></div>
             </ion-card-content>
         </ion-card>
     </div>

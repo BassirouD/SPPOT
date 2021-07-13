@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ClassementTempsPageRoutingModule } from './classement-temps-routing.module';
 
 import { ClassementTempsPage } from './classement-temps.page';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClassementTempsPageRoutingModule
+    ClassementTempsPageRoutingModule,
+    ChartModule
   ],
   declarations: [ClassementTempsPage]
 })

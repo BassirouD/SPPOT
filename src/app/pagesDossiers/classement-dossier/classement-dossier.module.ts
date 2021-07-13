@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ClassementDossierPageRoutingModule } from './classement-dossier-routing.module';
 
 import { ClassementDossierPage } from './classement-dossier.page';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClassementDossierPageRoutingModule
+    ClassementDossierPageRoutingModule,
+    ChartModule
   ],
   declarations: [ClassementDossierPage]
 })

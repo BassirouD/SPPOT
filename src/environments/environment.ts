@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api:"https://orbus-preprod.gainde2000.sn:8080/apisppot/"
 };
 
 /*

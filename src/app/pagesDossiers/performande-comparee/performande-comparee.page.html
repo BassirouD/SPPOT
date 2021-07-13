@@ -4,7 +4,7 @@
         <ion-title class="text-white">Performance comparée</ion-title>
         <ion-buttons slot="end">
             <ion-button class="text-white">
-                <ion-icon  name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
+                <ion-icon name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -35,139 +35,106 @@
         <ion-col>
             <ion-card class="text-center classSelect">
                 <ion-item>
-                    <ion-label>Choisir</ion-label>
-                    <ion-select value="notifications">
-                        <ion-select-option value="1">Assurance</ion-select-option>
-                        <ion-select-option value="2">Bank Ecobank</ion-select-option>
-                        <ion-select-option value="3">Hopital</ion-select-option>
-                        <ion-select-option value="4">Captivation</ion-select-option>
-                        <ion-select-option value="5">I dont know</ion-select-option>
+                    <ion-label>Famille pole 1:</ion-label>
+
+                    <ion-select value="notifications" [(ngModel)]="loadData.choice" required="" name="choice"
+                                type="text" (ionChange)="getValue1($event)">
+                        <ion-select-option value="BQ">BANQUES</ion-select-option>
+                        <ion-select-option value="PP">POLES PUBLICS</ion-select-option>
+                        <ion-select-option value="AC">ASSURANCES/COURTIERS</ion-select-option>
+                        <ion-select-option value="CO,OB">DPI</ion-select-option>
                     </ion-select>
+
                 </ion-item>
             </ion-card>
         </ion-col>
     </ion-row>
 
-    <ion-row class="classAlign">
-        <ion-col size="8" [ngClass]="getTextColor('text1')" (click)="setSelectedText('text1')">
-            <span>Liste des dossiers</span>
-        </ion-col>
-        <ion-col size="4" [ngClass]="getTextColor('text2')" (click)="setSelectedText('text2')">
-            <span>Vue graphique</span>
+    <ion-row>
+        <ion-col>
+            <ion-card class="text-center classSelect">
+                <ion-item>
+                    <ion-label>Famille pole 2:</ion-label>
+
+                    <ion-select value="notifications" [(ngModel)]="loadData.choice1" required="" name="choice"
+                                type="text" (ionChange)="getValue1($event)">
+                        <ion-select-option value="BQ">BANQUES</ion-select-option>
+                        <ion-select-option value="PP">POLES PUBLICS</ion-select-option>
+                        <ion-select-option value="AC">ASSURANCES/COURTIERS</ion-select-option>
+                        <ion-select-option value="CO,OB">DPI</ion-select-option>
+                    </ion-select>
+
+                </ion-item>
+            </ion-card>
         </ion-col>
     </ion-row>
 
-    <div *ngIf="selecteTextId === 'text1'">
-        <ion-card>
-            <ion-card-content>
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="calendar-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Temps</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="calendar-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Durée</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="calendar-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Temps</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-                <br>
-                <div class="colorLigne">
-                    <ion-row>
-                        <ion-col>
-                            <ion-text>
-                                <ion-badge class="badgeIcon">
-                                    <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
-                                </ion-badge>
-                            </ion-text>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconCalendar" name="podium-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col>
-                            <p class="valeurClass">Pole</p>
-                        </ion-col>
-                        <ion-col>
-                            <ion-icon class="iconLoading" name="calendar-outline"></ion-icon>
-                        </ion-col>
-                        <ion-col size="3.5" class="smallPP">
-                            <p>Temps</p>
-                        </ion-col>
-                    </ion-row>
-                </div>
-            </ion-card-content>
-        </ion-card>
+    <div class="bouton" style="margin-right: 15px; margin-left: 15px">
+        <ion-button color="primary" expand="block" (click)="parametrer()" shape="round"><span>afficher</span>
+        </ion-button>
     </div>
 
-    <div *ngIf="selecteTextId === 'text2'">
-        <ion-card>
-            <ion-card-header>Je suis le titre</ion-card-header>
-            <ion-card-content>
-                Je suis le contenu graphique
-            </ion-card-content>
-        </ion-card>
+    <br>
+
+    <ion-row *ngIf="visible" style="margin-right: 15px; margin-left: 15px">
+        <ion-col>
+            <ion-button color="primary" class="active" expand="full" (click)="parametrerDelai()" shape="round">Délai
+            </ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button color="primary" class="active" expand="full" (click)="parametrerDuree()" shape="round">Durée
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <div *ngIf="visible">
+
+        <ion-row class="classAlign">
+            <ion-col size="8" [ngClass]="getTextColor('text1')" (click)="setSelectedText('text1')">
+                <span>Liste des dossiers</span>
+            </ion-col>
+            <ion-col size="4" [ngClass]="getTextColor('text2')" (click)="setSelectedText('text2')">
+                <span (click)="openGraph()">Graphique</span>
+            </ion-col>
+        </ion-row>
+
+        <div *ngIf="selecteTextId === 'text1'">
+            <div *ngFor="let d of data">
+                <ion-card-content>
+                    <div class="colorLigne">
+                        <ion-row>
+                            <ion-col>
+                                <ion-text>
+                                    <ion-badge class="badgeIcon">
+                                        <ion-icon class="iconFolder text-white" name="folder"></ion-icon>
+                                    </ion-badge>
+                                </ion-text>
+                            </ion-col>
+                            <ion-col>
+                                <ion-text>
+                                    <p class="valeurClass">{{mois[d.periode - 1]}}</p>
+                                </ion-text>
+                            </ion-col>
+                            <ion-col>
+                                <p class="valeurClass">{{d.nomFamillePole}}</p>
+                            </ion-col>
+                            <ion-col size="3.5" class="smallPP">
+                                <p>{{conversion(d.tempsMoyenTraitement)}}</p>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-card-content>
+            </div>
+        </div>
+
+        <div *ngIf="selecteTextId === 'text2'">
+            <ion-card>
+                <ion-card-header></ion-card-header>
+                <ion-card-content>
+                    <div [chart]="chartOptions" style="width:80%; height:390px;margin:auto;"></div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
     </div>
-
-
 </ion-content>
