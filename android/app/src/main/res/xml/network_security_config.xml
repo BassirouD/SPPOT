@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
-  <domain-config cleartextTrafficPermitted="true">
-    <domain includeSubdomains="true">https://orbus-preprod.gainde2000.sn:8080/apisppot/</domain>
-  </domain-config>
-</network-security-config>
