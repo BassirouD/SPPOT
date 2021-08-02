@@ -355,6 +355,7 @@ export class PerformandeCompareePage implements OnInit {
     }
 
     openGraph(){
+        this.effacer();
         this.manage.performancecompareepole(this.annee,this.periode,this.mode,this.loadData.choice,this.loadData.choice1)
             .subscribe(resp=>{
                 this.data=resp;
