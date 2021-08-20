@@ -38,7 +38,7 @@
                     <ion-label>Famille pole 1:</ion-label>
 
                     <ion-select value="notifications" [(ngModel)]="loadData.choice" required="" name="choice"
-                                type="text" (ionChange)="getValue1($event)">
+                                type="text" (ionChange)="getValue1($event)" interface="action-sheet">
                         <ion-select-option value="BQ">BANQUES</ion-select-option>
                         <ion-select-option value="PP">POLES PUBLICS</ion-select-option>
                         <ion-select-option value="AC">ASSURANCES/COURTIERS</ion-select-option>
@@ -57,7 +57,7 @@
                     <ion-label>Famille pole 2:</ion-label>
 
                     <ion-select value="notifications" [(ngModel)]="loadData.choice1" required="" name="choice"
-                                type="text" (ionChange)="getValue1($event)">
+                                type="text" (ionChange)="getValue1($event)" interface="action-sheet">
                         <ion-select-option value="BQ">BANQUES</ion-select-option>
                         <ion-select-option value="PP">POLES PUBLICS</ion-select-option>
                         <ion-select-option value="AC">ASSURANCES/COURTIERS</ion-select-option>

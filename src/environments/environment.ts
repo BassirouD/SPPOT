@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    // api: "https://orbus-preprod.gainde2000.sn:8080/apisppot/"
-    api: "http://192.168.2.135:8080/apisppot/"
+    api: "https://orbus-preprod.gainde2000.sn:8080/apisppot/"
+    // api: "http://192.168.2.135:8080/apisppot/"
 };
 
 /*
